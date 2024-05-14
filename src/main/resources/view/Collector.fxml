@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.Collector">
+   <children>
+      <AnchorPane layoutX="-129.0" layoutY="48.0" prefHeight="300.0" prefWidth="300.0">
+         <children>
+            <AnchorPane layoutX="129.0" layoutY="7.0" prefHeight="338.0" prefWidth="255.0" style="-fx-background-color: #44ee58;">
+               <children>
+                  <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text=" Tea Supplier" textFill="#0b69b2">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="163.0" layoutY="52.0" mnemonicParsing="false" text="Employee" textFill="#0b69b2">
+                     <font>
+                        <Font name="System Bold Italic" size="14.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="22.0" layoutY="80.0" mnemonicParsing="false" text="Delivery" textFill="#0b69b2">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="163.0" layoutY="123.0" mnemonicParsing="false" text="Payment" textFill="#0b69b2">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="19.0" layoutY="159.0" mnemonicParsing="false" text="Tea Type" textFill="#0b69b2">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="170.0" layoutY="187.0" mnemonicParsing="false" text="Price" textFill="#0b69b2">
+                     <font>
+                        <Font name="System Bold Italic" size="14.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="19.0" layoutY="226.0" mnemonicParsing="false" text="Items" textFill="#0b69b2">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="139.0" layoutY="263.0" mnemonicParsing="false" text="Orders" textFill="#0b69b2">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="56.0" prefWidth="600.0" style="-fx-background-color: #b6c67e;">
+         <children>
+            <ImageView fitHeight="56.0" fitWidth="50.0" layoutX="550.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../../Downloads/false-2061132_640.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="56.0" fitWidth="57.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../../Downloads/realistic-beautiful-flying-green-tea-leaf-isolated-on-white-leaves-spring-background-the-premium-green-tea-for-good-health-foliage-nature-plant-for-2DTG5C7.jpg" />
+               </image>
+            </ImageView>
+            <Label layoutX="110.0" layoutY="20.0" text="Tea Leaf Bill System" textFill="#387517">
+               <font>
+                  <Font name="System Bold Italic" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="407.0" layoutY="20.0" text="Collector" textFill="#387517">
+               <font>
+                  <Font name="System Bold Italic" size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <Label layoutX="300.0" layoutY="92.0" text=" Collect_ID  :" textFill="#111010">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="306.0" layoutY="124.0" text="Name :" textFill="#111010">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="306.0" layoutY="156.0" text="Address :" textFill="#111010">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="306.0" layoutY="190.0" text="Contact No:" textFill="#111010">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </Label>
+      <TextField layoutX="404.0" layoutY="87.0" prefHeight="26.0" prefWidth="187.0" style="-fx-background-color: white;" />
+      <TextField layoutX="404.0" layoutY="119.0" prefHeight="26.0" prefWidth="187.0" style="-fx-background-color: white;" />
+      <TextField layoutX="404.0" layoutY="151.0" prefHeight="26.0" prefWidth="187.0" style="-fx-background-color: white;" />
+      <TextField layoutX="404.0" layoutY="185.0" prefHeight="26.0" prefWidth="187.0" style="-fx-background-color: white;" />
+      <Button layoutX="311.0" layoutY="244.0" mnemonicParsing="false" text="Search" textFill="#111010" />
+      <TextField layoutX="380.0" layoutY="246.0" prefHeight="26.0" prefWidth="211.0" style="-fx-background-color: white;" />
+      <Button layoutX="269.0" layoutY="284.0" mnemonicParsing="false" text="Add" textFill="#200aeb">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <Button layoutX="352.0" layoutY="314.0" mnemonicParsing="false" text="Update" textFill="#200aeb">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <Button layoutX="441.0" layoutY="284.0" mnemonicParsing="false" text="Delete" textFill="#200aeb">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <Button layoutX="521.0" layoutY="314.0" mnemonicParsing="false" text="Save" textFill="#200aeb">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <Button layoutX="521.0" layoutY="349.0" mnemonicParsing="false" text="Next &gt;&gt;" textFill="#200aeb">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
