@@ -1,4 +1,4 @@
-package lk.ijse.teleleavesbilling.model;
+package lk.ijse.teleleavesbilling.Tm;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,9 +7,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class Orders {
-    private  String OR_ID;
-    private  String Date;
+
+public class CollectorTm {
+    private  String Collect_ID;
+    private  String Name;
     private  String Address;
-    private  String Quantity;
+    private  String ContactNo;
 }
