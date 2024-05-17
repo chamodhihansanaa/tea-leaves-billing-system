@@ -39,25 +39,25 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="btnItemID" layoutX="209.0" layoutY="93.0" prefHeight="28.0" prefWidth="338.0" />
+      <TextField fx:id="txtItemID" layoutX="209.0" layoutY="93.0" prefHeight="28.0" prefWidth="338.0" />
       <Label layoutX="67.0" layoutY="147.0" text="Description :">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="btnDescription" layoutX="209.0" layoutY="142.0" prefHeight="28.0" prefWidth="338.0" />
+      <TextField fx:id="txtDescription" layoutX="209.0" layoutY="142.0" prefHeight="28.0" prefWidth="338.0" />
       <Label layoutX="67.0" layoutY="197.0" text="Price  :">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="btnPrice" layoutX="209.0" layoutY="192.0" prefHeight="28.0" prefWidth="338.0" />
+      <TextField fx:id="txtPrice" layoutX="209.0" layoutY="192.0" prefHeight="28.0" prefWidth="338.0" />
       <Button fx:id="btnClear" layoutX="717.0" layoutY="280.0" mnemonicParsing="false" onAction="#btnClearOnAction" text="Clear" />
       <Button fx:id="btnUpdate" layoutX="714.0" layoutY="153.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" text="Update" />
       <Button fx:id="btnDelete" layoutX="717.0" layoutY="215.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" text="Delete" />
       <Button fx:id="btnSave" layoutX="714.0" layoutY="84.0" mnemonicParsing="false" onAction="#btnSaveOnAction" text="Save" />
       <Button layoutX="87.0" layoutY="256.0" mnemonicParsing="false" text="Search" />
-      <TextField fx:id="btnSearch" layoutX="209.0" layoutY="252.0" onAction="#btnSearchOnAction" prefHeight="28.0" prefWidth="338.0" />
+      <TextField fx:id="txtSearch" layoutX="209.0" layoutY="252.0" onAction="#btnSearchOnAction" prefHeight="28.0" prefWidth="338.0" />
       <TableView fx:id="tblItems" layoutX="150.0" layoutY="340.0" prefHeight="200.0" prefWidth="543.0">
         <columns>
           <TableColumn fx:id="colItem_ID" prefWidth="181.0" text="Item_ID" />

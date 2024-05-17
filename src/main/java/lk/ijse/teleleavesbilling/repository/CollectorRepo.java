@@ -71,8 +71,7 @@ public class CollectorRepo {
     public static List<Collector> getAll() throws SQLException {
         String sql = "SELECT * FROM Collector";
 
-        PreparedStatement pstm = DBConnection.getInstance().getConnection()
-                .prepareStatement(sql);
+        PreparedStatement pstm = DBConnection.getInstance().getConnection().prepareStatement(sql);
 
         ResultSet resultSet = pstm.executeQuery();
 

@@ -39,10 +39,10 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <TextField layoutX="212.0" layoutY="77.0" prefHeight="30.0" prefWidth="338.0" />
-      <TextField layoutX="212.0" layoutY="131.0" prefHeight="30.0" prefWidth="338.0" />
-      <TextField layoutX="212.0" layoutY="180.0" prefHeight="30.0" prefWidth="338.0" />
-      <TextField layoutX="212.0" layoutY="226.0" prefHeight="30.0" prefWidth="338.0" />
+      <TextField fx:id="txtPayId" layoutX="212.0" layoutY="77.0" prefHeight="30.0" prefWidth="338.0" />
+      <TextField fx:id="txtPayMethod" layoutX="212.0" layoutY="131.0" prefHeight="30.0" prefWidth="338.0" />
+      <TextField fx:id="txtAddress" layoutX="212.0" layoutY="180.0" prefHeight="30.0" prefWidth="338.0" />
+      <TextField layoutX="212.0" layoutY="226.0" onAction="#txtSearchOnAction" prefHeight="30.0" prefWidth="338.0" />
       <Label layoutX="24.0" layoutY="137.0" text="Payment Method :">
          <font>
             <Font name="System Bold" size="14.0" />
@@ -54,10 +54,10 @@
          </font>
       </Label>
       <Button layoutX="121.0" layoutY="229.0" mnemonicParsing="false" text="Search" />
-      <Button fx:id="btnClear" layoutX="746.0" layoutY="229.0" mnemonicParsing="false" onAction="#btnClearOnAction" text="Clear" />
-      <Button fx:id="btnUpdate" layoutX="734.0" layoutY="119.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" text="Update" />
-      <Button fx:id="btnDelete" layoutX="737.0" layoutY="168.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" text="Delete" />
-      <Button fx:id="btnSave" layoutX="742.0" layoutY="71.0" mnemonicParsing="false" onAction="#btnSaveOnAction" text="Save" />
+      <Button layoutX="746.0" layoutY="229.0" mnemonicParsing="false" onAction="#btnClearOnAction" text="Clear" />
+      <Button layoutX="734.0" layoutY="119.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" text="Update" />
+      <Button layoutX="737.0" layoutY="168.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" text="Delete" />
+      <Button layoutX="742.0" layoutY="71.0" mnemonicParsing="false" onAction="#btnSaveOnAction" text="Save" />
       <TableView fx:id="tblPayment" layoutX="146.0" layoutY="348.0" prefHeight="200.0" prefWidth="570.0">
         <columns>
           <TableColumn fx:id="colPayment_ID" prefWidth="189.0" text="Payment_ID" />

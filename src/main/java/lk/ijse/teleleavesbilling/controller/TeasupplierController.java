@@ -6,10 +6,13 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TextField;
+import lk.ijse.teleleavesbilling.model.Collector;
 import lk.ijse.teleleavesbilling.model.TeaSupplier;
 import lk.ijse.teleleavesbilling.repository.TeaSupplierRepo;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class TeasupplierController {
 
@@ -51,49 +54,57 @@ public class TeasupplierController {
 
     @FXML
     private TableColumn<?, ?> colTS_ID;
+    private List<TeaSupplier> teaSupplierList = new ArrayList<>();
+
+    public void initialize() {
+        this.teaSupplierList = getAllEmployee();
+        setCellValueFactory();
+        loadTeaSupplierTable();
+    }
+
+    private void setCellValueFactory() {
+
+    }
+
+    private void loadTeaSupplierTable() {
+    }
+
+    private List<TeaSupplier> getAllEmployee() {
+    }
 
     @FXML
     void btnClearOnAction(ActionEvent event) {
-        txtTS_ID.setText("");
-        txtName.setText("");
-        txtAddress.setText("");
-        txtContact.setText("");
+        TS_ID.setText("");
+        TS_NAME.setText("");
+        TS_ADDRESS.setText("");
+        TS_CONTACT.setText("");
     }
 
 
     @FXML
     void btnDeleteOnAction(ActionEvent event) {
-        String ts_id = txtTS_ID.getText();
+        String tsid = TS_ID.getText();
 
-        try {
-            boolean isDeleted = TeaSupplierRepo.delete(ts_id);
-            if (isDeleted) {
-                new Alert(Alert.AlertType.CONFIRMATION, "customer deleted!").show();
-            }
-        } catch (SQLException e) {
-            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        boolean isDeleted = TeaSupplierRepo.delete(tsid);
+        if (isDeleted) {
+            new Alert(Alert.AlertType.CONFIRMATION, "customer deleted!").show();
         }
     }
 
 
     @FXML
     void btnSaveOnAction(ActionEvent event) {
-        String ts_id = txtTS_ID.getText();
-        String name = txtName.getText();
-        String address = txtAddress.getText();
-        String contact = txtContact.getText();
+        String tsid = TS_ID.getText();
+        String name = TS_NAME.getText();
+        String address = TS_ADDRESS.getText();
+        String contact = TS_CONTACT.getText();
 
-        TeaSupplier teasupplier = new TeaSupplier(ts_id, name, address, contact);
+        TeaSupplier teasupplier = new TeaSupplier(tsid, name, address, contact);
 
-        try {
-            boolean isSaved = TeaSupplierRepo.save(teasupplier);
-            if (isSaved) {
-                new Alert(Alert.AlertType.CONFIRMATION, "customer saved!").show();
-            }
-        } catch (SQLException e) {
-            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        boolean isSaved = TeaSupplierRepo.save(teasupplier);
+        if (isSaved) {
+            new Alert(Alert.AlertType.CONFIRMATION, "customer saved!").show();
         }
-
 
 
     }
@@ -101,12 +112,12 @@ public class TeasupplierController {
 
     @FXML
     void btnUpdateOnAction(ActionEvent event) {
-        String ts_id = txtTS_ID.getText();
-        String name = txtName.getText();
-        String address = txtAddress.getText();
-        String contact = txtContact.getText();
+        String tsid = TS_ID.getText();
+        String name = TS_NAME.getText();
+        String address = TS_ADDRESS.getText();
+        String contact = TS_CONTACT.getText();
 
-        TeaSupplier teasupplier = new TeaSupplier(ts_id, name, address, contact);
+        TeaSupplier teasupplier = new TeaSupplier(tsid, name, address, contact);
 
         try {
             boolean isUpdated = TeaSupplierRepo.update(teasupplier);

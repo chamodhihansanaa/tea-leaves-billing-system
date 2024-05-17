@@ -2,18 +2,27 @@ package lk.ijse.teleleavesbilling.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
+import lk.ijse.teleleavesbilling.model.Collector;
 import lk.ijse.teleleavesbilling.model.Items;
 import lk.ijse.teleleavesbilling.model.Payment;
 import lk.ijse.teleleavesbilling.repository.ItemsRepo;
 import lk.ijse.teleleavesbilling.repository.PaymentRepo;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class PaymentFormController {
+
+    @FXML
+    private TextField txtAddress;
+
+    @FXML
+    private TextField txtPayId;
+
+    @FXML
+    private TextField txtPayMethod;
 
     @FXML
     private Button btnClear;
@@ -38,63 +47,72 @@ public class PaymentFormController {
 
     @FXML
     private TableView<?> tblPayment;
+    private List<Payment> paymentList = new ArrayList<>();
+
+    public void initialize() {
+        this.paymentList = getAllPayment();
+        setCellValueFactory();
+        loadEmployeeTable();
+    }
+
+    private List<Payment> getAllPayment() {
+        return null;
+    }
+
+    private void setCellValueFactory() {
+
+    }
+
+    private void loadEmployeeTable() {
+
+    }
+
+
 
     @FXML
     void btnClearOnAction(ActionEvent event) {
-        txtPayment_ID.setText("");
-        txtPaymentMathod.setText("");
+        txtPayId.setText("");
         txtAddress.setText("");
+        txtPayMethod.setText("");
     }
 
     @FXML
     void btnDeleteOnAction(ActionEvent event) {
-        String payment_id = txtPayment_ID.getText();
+        String paymentid = txtPayId.getText();
 
-        try {
-            boolean isDeleted = PaymentRepo.delete(payment_id);
-            if (isDeleted) {
-                new Alert(Alert.AlertType.CONFIRMATION, "customer deleted!").show();
-            }
-        } catch (SQLException e) {
-            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        boolean isDeleted = PaymentRepo.delete(paymentid);
+        if (isDeleted) {
+            new Alert(Alert.AlertType.CONFIRMATION, "customer deleted!").show();
         }
     }
 
     @FXML
     void btnSaveOnAction(ActionEvent event) {
-        String payment_id = txtPayment_ID.getText();
-        String paymentmethod = txtPaymentMethod.getText();
+        String paymentid = txtPayId.getText();
+        String paymentmethod = txtPayMethod.getText();
         String address = txtAddress.getText();
 
 
-        Payment payment = new Payment(payment_id, paymentmethod, address);
+        Payment payment = new Payment(paymentid, paymentmethod, address);
 
-        try {
-            boolean isSaved = PaymentRepo.save(payment);
-            if (isSaved) {
-                new Alert(Alert.AlertType.CONFIRMATION, "customer saved!").show();
-            }
-        } catch (SQLException e) {
-            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        boolean isSaved = PaymentRepo.save(payment);
+        if (isSaved) {
+            new Alert(Alert.AlertType.CONFIRMATION, "customer saved!").show();
         }
     }
 
     @FXML
     void btnUpdateOnAction(ActionEvent event) {
-        String payment_id = txtPayment_ID.getText();
-        String paymentmethod = txtPaymentMethod.getText();
+        String paymentid = txtPayId.getText();
+        String paymentmethod = txtPayMethod.getText();
         String address = txtAddress.getText();
 
 
-        Payment payment = new Payment(payment_id, paymentmethod, address);
+        Payment payment = new Payment(paymentid, paymentmethod, address);
 
-        try {
-            boolean isUpdated = PaymentRepo.update(payment);
-            if (isUpdated) {
-                new Alert(Alert.AlertType.CONFIRMATION, "customer updated!").show();
-            }
-        } catch (SQLException e) {
-            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        boolean isUpdated = PaymentRepo.update(payment);
+        if (isUpdated) {
+            new Alert(Alert.AlertType.CONFIRMATION, "customer updated!").show();
         }
     }
 

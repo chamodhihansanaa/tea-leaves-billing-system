@@ -5,12 +5,15 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import lk.ijse.teleleavesbilling.model.Employee;
 import lk.ijse.teleleavesbilling.model.Price;
+import lk.ijse.teleleavesbilling.model.TeaSupplier;
 import lk.ijse.teleleavesbilling.model.TeaType;
 import lk.ijse.teleleavesbilling.repository.EmployeeRepo;
 import lk.ijse.teleleavesbilling.repository.PriceRepo;
 import lk.ijse.teleleavesbilling.repository.TeaTypeRepo;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class TeaTypeFormController {
 
@@ -52,6 +55,26 @@ public class TeaTypeFormController {
 
     @FXML
     private TextField txtTeaID;
+    private List<TeaType> teatypeList = new ArrayList<>();
+    private Object teaSupplierList;
+
+    public void initialize() {
+        this.teaSupplierList = getAllEmployee();
+        setCellValueFactory();
+        loadTeaSupplierTable();
+    }
+
+    private void setCellValueFactory() {
+
+    }
+
+    private void loadTeaSupplierTable() {
+
+    }
+
+    private Object getAllEmployee() {
+
+    }
 
     @FXML
     void btnClearOnAction(ActionEvent event) {

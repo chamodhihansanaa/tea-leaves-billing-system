@@ -1,40 +1,41 @@
 package lk.ijse.teleleavesbilling.controller;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
+import lk.ijse.teleleavesbilling.Tm.DeliveryTm;
 import lk.ijse.teleleavesbilling.model.Delivery;
-import lk.ijse.teleleavesbilling.model.Employee;
 import lk.ijse.teleleavesbilling.repository.DeliveryRepo;
-import lk.ijse.teleleavesbilling.repository.EmployeeRepo;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DeliveryFormController {
 
     @FXML
-    private TextField btnAddress;
+    private TextField txtAddress;
+
+    @FXML
+    private TextField txtCode;
+
+    @FXML
+    private TextField txtDate;
+
+    @FXML
+    private TextField txtPrice;
 
     @FXML
     private Button btnClear;
 
     @FXML
-    private TextField btnCode;
-
-    @FXML
-    private TextField btnDate;
-
-    @FXML
     private Button btnDelete;
 
     @FXML
-    private TextField btnPrice;
-
-    @FXML
     private Button btnSave;
-
-    @FXML
-    private TextField btnSearch;
 
     @FXML
     private Button btnUpdate;
@@ -52,7 +53,51 @@ public class DeliveryFormController {
     private TableColumn<?, ?> colPrice;
 
     @FXML
-    private TableView<?> tblDelivery;
+    private TableView<DeliveryTm> tblDelivery;
+    private List<Delivery> deliveryList = new ArrayList<>();
+
+    public void initialize() {
+        this.deliveryList = getAllDelivery();
+        setCellValueFactory();
+        loadDeliveryTable();
+    }
+
+    private List<Delivery> getAllDelivery() {
+        return null;
+    }
+
+    private List<Delivery> getAllCollectors() {
+        List<Delivery> deliveryList = null;
+        try {
+            deliveryList = DeliveryRepo.getAll();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return deliveryList;
+    }
+
+    private void setCellValueFactory() {
+        colCode.setCellValueFactory(new PropertyValueFactory<>("Code"));
+        colPrice.setCellValueFactory(new PropertyValueFactory<>("Price"));
+        colDate.setCellValueFactory(new PropertyValueFactory<>("Date"));
+        colAddress.setCellValueFactory(new PropertyValueFactory<>("Address"));
+    }
+
+    private void loadDeliveryTable() {
+        ObservableList<DeliveryTm> tmList = FXCollections.observableArrayList();
+
+        for (Delivery delivery : deliveryList) {
+             DeliveryTm deliveryTm = new DeliveryTm(
+                    delivery.getCode(),
+                    delivery.getPrice(),
+                    delivery.getDate(),
+                    delivery.getAddress()
+            );
+
+            tmList.add(deliveryTm);
+        }
+        tblDelivery.setItems(tmList);
+    }
 
     @FXML
     void btnClearOnAction(ActionEvent event) {

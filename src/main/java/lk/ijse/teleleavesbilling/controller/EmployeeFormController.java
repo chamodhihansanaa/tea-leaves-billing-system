@@ -4,10 +4,13 @@ package lk.ijse.teleleavesbilling.controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import lk.ijse.teleleavesbilling.model.Collector;
 import lk.ijse.teleleavesbilling.model.Employee;
 import lk.ijse.teleleavesbilling.repository.EmployeeRepo;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class EmployeeFormController {
 
@@ -55,6 +58,25 @@ public class EmployeeFormController {
 
     @FXML
     private TextField txtSearch;
+    private List<Collector> employeeList = new ArrayList<>();
+
+    public void initialize() {
+        this.employeeList = getAllEmployee();
+        setCellValueFactory();
+        loadEmployeeTable();
+    }
+
+    private void loadEmployeeTable() {
+
+    }
+
+    private void setCellValueFactory() {
+
+    }
+
+    private List<Collector> getAllEmployee() {
+        return null;
+    }
 
     @FXML
     void btnClearOnAction(ActionEvent event) {
@@ -104,7 +126,7 @@ public class EmployeeFormController {
         String id = txtEMP_ID.getText();
 
         try {
-            Employee employee = EmployeeRepo.searchByEMP_ID(emp_id);
+            Employee employee = EmployeeRepo.searchByEMP_ID(id);
 
             if (employee != null) {
                 txtEMP_ID.setText(employee.getEMP_ID());

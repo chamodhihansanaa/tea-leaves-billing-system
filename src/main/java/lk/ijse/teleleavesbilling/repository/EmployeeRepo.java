@@ -36,7 +36,18 @@ public class EmployeeRepo {
         return pstm.executeUpdate() > 0;
     }
 
-    public static Employee searchById(String id) throws SQLException {
+
+    public static boolean delete(String id) throws SQLException {
+        String sql = "DELETE FROM customers WHERE id = ?";
+        PreparedStatement pstm = DBConnection.getInstance().getConnection().prepareStatement(sql);
+
+        pstm.setObject(1, id);
+
+        return pstm.executeUpdate() > 0;
+    }
+
+
+    public static Employee searchByEMP_ID(String id) throws SQLException {
         String sql = "SELECT * FROM employee WHERE emp_id = ?";
         PreparedStatement pstm = DBConnection.getInstance().getConnection().prepareStatement(sql);
 
@@ -55,15 +66,4 @@ public class EmployeeRepo {
         }
         return employee;
     }
-
-    public static boolean delete(String id) throws SQLException {
-        String sql = "DELETE FROM customers WHERE id = ?";
-        PreparedStatement pstm = DBConnection.getInstance().getConnection().prepareStatement(sql);
-
-        pstm.setObject(1, id);
-
-        return pstm.executeUpdate() > 0;
-    }
-
-
 }

@@ -123,7 +123,7 @@ public class OrdersFormController {
         String quantity = txtQuantity.getText();
         String date = txtDate.getText();
 
-        Employee employee = new Employee(orderid, address, quantity, date);
+        Orders orders = new Orders(orderid, address, quantity, date);
 
         try {
             boolean isUpdated = OrdersRepo.update(orders);

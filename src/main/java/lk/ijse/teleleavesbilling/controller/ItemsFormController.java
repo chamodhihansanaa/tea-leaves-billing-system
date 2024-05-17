@@ -3,12 +3,15 @@ package lk.ijse.teleleavesbilling.controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import lk.ijse.teleleavesbilling.model.Collector;
 import lk.ijse.teleleavesbilling.model.Employee;
 import lk.ijse.teleleavesbilling.model.Items;
 import lk.ijse.teleleavesbilling.repository.EmployeeRepo;
 import lk.ijse.teleleavesbilling.repository.ItemsRepo;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ItemsFormController {
 
@@ -19,19 +22,7 @@ public class ItemsFormController {
     private Button btnDelete;
 
     @FXML
-    private TextField btnDescription;
-
-    @FXML
-    private TextField btnItemID;
-
-    @FXML
-    private TextField btnPrice;
-
-    @FXML
     private Button btnSave;
-
-    @FXML
-    private TextField btnSearch;
 
     @FXML
     private Button btnUpdate;
@@ -49,41 +40,55 @@ public class ItemsFormController {
     private TableView<?> tblItems;
 
     @FXML
+    private TextField txtDescription;
+
+    @FXML
+    private TextField txtItemID;
+
+    @FXML
+    private TextField txtPrice;
+
+    @FXML
+    private TextField txtSearch;
+    private List<Collector> itemsList = new ArrayList<>();
+
+    public void initialize() {
+        this.itemsList = getAllItems();
+        setCellValueFactory();
+        loadEmployeeTable();
+    }
+
+    private List<Collector> getAllItems() {
+        return null;
+    }
+
+    private void setCellValueFactory() {
+
+    }
+
+    private void loadEmployeeTable() {
+
+    }
+
+
+
+
+    @FXML
     void btnClearOnAction(ActionEvent event) {
-        txtI_ID.setText("");
+        txtItemID.setText("");
         txtDescription.setText("");
         txtPrice.setText("");
-
 
     }
 
     @FXML
     void btnDeleteOnAction(ActionEvent event) {
-        String i_id = txtI_ID.getText();
-
-            try {
-                boolean isDeleted = ItemsRepo.delete(i_id);
-                if (isDeleted) {
-                    new Alert(Alert.AlertType.CONFIRMATION, "customer deleted!").show();
-                }
-            } catch (SQLException e) {
-                new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
-            }
-    }
-
-    @FXML
-    void btnSaveOnAction(ActionEvent event) {
-        String i_id = txtI_ID.getText();
-        String description = txtDescription.getText();
-        String price = txtPrice.getText();
-
-
-        Items items = new Items(i_id, description, price);
+        String itemid = txtItemID.getText();
 
         try {
-            boolean isSaved = ItemsRepo.save(items);
-            if (isSaved) {
-                new Alert(Alert.AlertType.CONFIRMATION, "customer saved!").show();
+            boolean isDeleted = ItemsRepo.delete(itemid);
+            if (isDeleted) {
+                new Alert(Alert.AlertType.CONFIRMATION, "customer deleted!").show();
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
@@ -91,14 +96,34 @@ public class ItemsFormController {
     }
 
     @FXML
+    void btnSaveOnAction(ActionEvent event) {
+
+            String itemid = txtItemID.getText();
+            String description = txtDescription.getText();
+            String price = txtPrice.getText();
+
+
+            Items items = new Items(itemid, description, price);
+
+            try {
+                boolean isSaved = ItemsRepo.save(items);
+                if (isSaved) {
+                    new Alert(Alert.AlertType.CONFIRMATION, "customer saved!").show();
+                }
+            } catch (SQLException e) {
+                new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+            }
+    }
+
+    @FXML
     void btnSearchOnAction(ActionEvent event) {
-        String i_id = txtI_ID.getText();
+        String itemid = txtItemID.getText();
 
         try {
-            Items items = ItemsRepo.searchByI_ID(i_id);
+            Items items = ItemsRepo.searchByI_ID(itemid);
 
             if (items != null) {
-                txtI_ID.setText(items.getI_ID());
+                txtItemID.setText(items.getI_ID());
                 txtDescription.setText(items.getDescription());
                 txtPrice.setText(items.getPrice());
 
@@ -110,12 +135,12 @@ public class ItemsFormController {
 
     @FXML
     void btnUpdateOnAction(ActionEvent event) {
-        String i_id = txtI_ID.getText();
+        String itemid = txtItemID.getText();
         String description = txtDescription.getText();
         String price = txtPrice.getText();
 
 
-        Items items = new Items(i_id, description, price);
+        Items items = new Items(itemid, description, price);
 
         try {
             boolean isUpdated = ItemsRepo.update(items);
@@ -128,4 +153,3 @@ public class ItemsFormController {
     }
 
 }
-
